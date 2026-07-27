@@ -35,6 +35,9 @@ postcss.parse(css, { from: path.join(root, 'theme.css') });
 if (!css.includes('.theme-dark')) throw new Error('theme.css must define a dark color scheme');
 if (!css.includes('.theme-light')) throw new Error('theme.css must define a light color scheme');
 if (!css.includes('--accent-h:')) throw new Error('theme.css must define the Gib Theme accent system');
+if (!css.includes('.status-bar:not(.gib-tweaks-status-bar-in-sidebar)')) {
+  throw new Error('Gib Theme must defer relocated status-bar styling to Gib Tweaks');
+}
 if (/url\s*\(\s*["']?https?:/i.test(css) || /@import\s+(?:url\s*\()?\s*["']?https?:/i.test(css)) {
   throw new Error('theme.css must not load remote runtime assets');
 }

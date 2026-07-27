@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1
+
+- Scopes main-workspace status-bar styling away from the Gib Tweaks right-sidebar footer.
+- Prevents theme cascade rules from overriding the plugin's relocated status-bar layout.
+
 ## 0.2.0
 
 - Renames the theme and public project from Claudish to Gib Theme.

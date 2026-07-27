@@ -371,7 +371,7 @@
    making splits + status-bar direct grid participants. */
 
 /* Status bar styling — positioning handled by the optional Gib Tweaks plugin */
-body:not(.is-mobile) .status-bar {
+body:not(.is-mobile) .status-bar:not(.gib-tweaks-status-bar-in-sidebar) {
   border-top: 1px solid var(--divider-color);
   border-radius: 0;
   justify-content: flex-start;
