@@ -1,6 +1,6 @@
-# Claudish
+# Gib Theme
 
-Claudish is a warm, restrained theme for Obsidian with coordinated dark and light palettes. It uses warm stone neutrals, a parchment accent, readable serif document headings, quiet interface chrome, and carefully tuned code, callout, menu, link, and sidebar treatments.
+Gib Theme is a warm, restrained theme for Obsidian with coordinated dark and light palettes. It uses warm stone neutrals, a parchment accent, readable serif document headings, quiet interface chrome, and carefully tuned code, callout, menu, link, and sidebar treatments.
 
 ## Highlights
 
@@ -15,8 +15,8 @@ Claudish is a warm, restrained theme for Obsidian with coordinated dark and ligh
 
 1. Install and enable **BRAT** in Obsidian.
 2. Open BRAT settings and choose **Add Beta Theme**.
-3. Enter `Giblicious/Claudish-Theme`.
-4. Select **Claudish** under **Settings → Appearance → Themes**.
+3. Enter `Giblicious/Gib-Theme`.
+4. Select **Gib Theme** under **Settings → Appearance → Themes**.
 
 BRAT reads the root-level `theme.css` and `manifest.json`. This repository intentionally does not use `theme-beta.css`, so the tested main theme file is always the BRAT source.
 
