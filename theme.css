@@ -1,0 +1,505 @@
+/* Claudish Theme — Layer 1: Base Color Ramp
+   RPVM warm neutrals mapped to Obsidian's foundation palette.
+   This alone shifts the entire UI from cool gray to warm stone. */
+
+.theme-dark {
+  --color-base-00:  #1A1918;
+  --color-base-05:  #1E1D1C;
+  --color-base-10:  #222120;
+  --color-base-20:  #252422;
+  --color-base-25:  #2C2B29;
+  --color-base-30:  #343231;
+  --color-base-35:  #3D3B39;
+  --color-base-40:  #4E4B48;
+  --color-base-50:  #6B6560;
+  --color-base-60:  #A8A29E;
+  --color-base-70:  #B8ADA2;
+  --color-base-100: #D4C5B5;
+
+  /* Dim paragraph text, keep headings bright */
+  --text-normal:    #B8ADA2;
+  --h1-color:       #D4C5B5;
+  --h2-color:       #D4C5B5;
+  --h3-color:       #D4C5B5;
+  --h4-color:       #D4C5B5;
+  --h5-color:       #D4C5B5;
+  --h6-color:       #D4C5B5;
+  --inline-title-color: #D4C5B5;
+  --bold-color:     #D4C5B5;
+
+  /* Flatten chrome to match primary bg */
+  --titlebar-background:          #1A1918;
+  --titlebar-background-focused:  #1A1918;
+  --tab-container-background:     #1A1918;
+  --ribbon-background:            #1A1918;
+  --ribbon-background-collapsed:  #1A1918;
+  --background-secondary:         #1A1918;
+  --background-secondary-alt:     #1A1918;
+
+  /* Layer 2: Accent — RPVM #D4C5B5 as HSL */
+  --accent-h: 31;
+  --accent-s: 27%;
+  --accent-l: 77%;
+
+  /* Layer 3: Extended colors — RPVM status palette */
+  --color-red:         #EF4444;
+  --color-red-rgb:     239, 68, 68;
+  --color-orange:      #F59E0B;
+  --color-orange-rgb:  245, 158, 11;
+  --color-yellow:      #E0DE71;
+  --color-yellow-rgb:  224, 222, 113;
+  --color-green:       #22C55E;
+  --color-green-rgb:   34, 197, 94;
+  --color-cyan:        #53DFDD;
+  --color-cyan-rgb:    83, 223, 221;
+  --color-blue:        #3B82F6;
+  --color-blue-rgb:    59, 130, 246;
+  --color-purple:      #A882FF;
+  --color-purple-rgb:  168, 130, 255;
+  --color-pink:        #FA99CD;
+  --color-pink-rgb:    250, 153, 205;
+
+  /* Layer 4: Typography */
+  --font-interface-theme: "Segoe UI Variable", "Segoe UI", "Inter", sans-serif;
+  --font-text-theme:      "Segoe UI Variable", "Segoe UI", "Inter", sans-serif;
+  --font-monospace-theme:  "Roboto Mono", "JetBrains Mono", monospace;
+  --paragraph-weight: 350;
+  --code-weight: 300;
+
+  /* Title and H1 are identical (both are document-level H1) */
+  --inline-title-font:   "Libre Baskerville", "Georgia", serif;
+  --inline-title-weight: 700;
+  --inline-title-size:   2em;
+  --inline-title-line-height: 1.0;
+
+  --h1-font:            "Libre Baskerville", "Georgia", serif;
+  --h1-weight:          700;
+  --h1-size:            2em;
+  --h1-line-height:     1.0;
+  --h1-letter-spacing:  -0.015em;
+
+  /* H2 */
+  --h2-font:   "Libre Baskerville", "Georgia", serif;
+  --h2-weight: 400;
+  --h2-size:   1.7em;
+  --h2-line-height: 1.2;
+
+  /* H3 = old H2 */
+  --h3-font:   "Libre Baskerville", "Georgia", serif;
+  --h3-weight: 400;
+  --h3-size:   1.6em;
+  --h3-line-height: 1.4;
+
+  /* H4 = old H3 */
+  --h4-weight: 600;
+  --h4-size:   1.3em;
+
+  /* H5 = old H4 */
+  --h5-size:   1.05em;
+
+  /* H6 = old H5 */
+  --h6-size:   1em;
+
+  /* Layer 5i: Callouts */
+  --callout-radius:            12px;
+  --callout-border-width:      1px;
+  --callout-border-opacity:    0.15;
+  --callout-blend-mode:        normal;
+  --callout-padding:           var(--size-4-3) var(--size-4-4);
+  --callout-title-padding:     0 0 var(--size-4-2) 0;
+  --callout-content-padding:   0;
+  --callout-quote:             168, 162, 158;
+
+  /* Layer 5h: Buttons, toggles, dropdowns */
+  --text-on-accent:          #1A1918;
+  --text-on-accent-inverted: #D4C5B5;
+  --toggle-thumb-color:      #1A1918;
+  --button-radius:           12px;
+  --input-radius:            16px;
+  --interactive-accent-hover: #C8B9A8;
+
+  /* Superellipse on all interactive elements */
+  --corner-shape:            superellipse(2);
+  --menu-corner-shape:       superellipse(2);
+  --input-corner-shape:      superellipse(2);
+  --button-corner-shape:     superellipse(2);
+
+  /* Flat input shadows — replace heavy 3D defaults */
+  --input-shadow:            inset 0 0 0 1px rgba(68, 64, 60, 0.5);
+  --input-shadow-hover:      inset 0 0 0 1px rgba(68, 64, 60, 0.8);
+
+  /* Dropdown & menu — cohesive surface style */
+  --dropdown-background:     #252422;
+  --dropdown-background-hover: #2C2B29;
+  --menu-background:         #252422;
+  --menu-border-color:       #44403C;
+  --menu-radius:             12px;
+  --menu-shadow:             0 8px 30px rgba(0, 0, 0, 0.3);
+
+  /* Layer 5c: Links */
+  --link-color:                       #A29180;
+  --link-color-hover:                 #BEB0A2;
+  --link-decoration:                  underline;
+  --link-decoration-hover:            underline;
+  --link-external-color:              #A29180;
+  --link-external-color-hover:        #BEB0A2;
+  --link-external-decoration:         underline;
+  --link-external-decoration-hover:   underline;
+  --link-unresolved-color:            #6B6560;
+  --link-unresolved-opacity:          0.8;
+  --link-unresolved-decoration-style: dashed;
+  --link-weight:                      350;
+
+  /* Layer 5b: Tags — RPVM pill badges */
+  --tag-color:              #D4C5B5;
+  --tag-color-hover:        #E7E5E4;
+  --tag-background:         rgba(212, 197, 181, 0.08);
+  --tag-background-hover:   rgba(212, 197, 181, 0.14);
+  --tag-border-color:       rgba(212, 197, 181, 0.2);
+  --tag-border-color-hover: rgba(212, 197, 181, 0.35);
+  --tag-border-width:       1px;
+  --tag-padding-x:          8px;
+  --tag-padding-y:          2px;
+  --tag-radius:             9999px;
+  --tag-decoration:         none;
+  --tag-decoration-hover:   none;
+
+  /* Layer 5e: Navigation / file explorer */
+  --nav-item-color:                    #A8A29E;
+  --nav-item-color-hover:              #D4C5B5;
+  --nav-item-color-active:             #D4C5B5;
+  --nav-item-color-selected:           #D4C5B5;
+  --nav-item-background-hover:         #252422;
+  --nav-item-background-active:        #252422;
+  --nav-item-background-selected:      #252422;
+  --nav-collapse-icon-color:           #4E4B48;
+  --nav-indentation-guide-color:       #2C2B29;
+
+  /* Layer 5g: Dividers */
+  --divider-color:       #44403C;
+  --divider-color-hover: #57534E;
+
+  /* Layer 5g: Modal */
+  --modal-background:    #252422;
+  --modal-border-color:  #44403C;
+  --modal-radius:        16px;
+
+  /* Layer 5g: Graph */
+  --graph-text:            #A8A29E;
+  --graph-line:            #44403C;
+  --graph-node:            #D4C5B5;
+  --graph-node-unresolved: #4E4B48;
+  --graph-node-focused:    #E7E5E4;
+  --graph-node-tag:        #F59E0B;
+  --graph-node-attachment: #3B82F6;
+
+  /* Layer 5d: Code blocks — RPVM depth tone */
+  --code-background: #151413;
+
+  /* Layer 5a: Scrollbar — RPVM stone tones */
+  --scrollbar-bg:              transparent;
+  --scrollbar-thumb-bg:        #3D3B39;
+  --scrollbar-active-thumb-bg: #57534E;
+
+  /* Layer 7: Status bar — match vault profile bar style */
+  --status-bar-background:    #1A1918;
+  --status-bar-border-color:  #2C2B29;
+  --status-bar-border-width:  1px 0 0 0;
+  --status-bar-text-color:    #6B6560;
+  --status-bar-font-size:     12px;
+  --status-bar-radius:        0;
+  /* --status-bar-position: fixed; — removed: let Obsidian's default layout
+     reserve space for the status bar so views don't extend behind it */
+}
+
+.theme-light {
+  --color-base-00:  #FAF7F4;
+  --color-base-05:  #F5F2EF;
+  --color-base-10:  #EDEAE6;
+  --color-base-20:  #E5E1DC;
+  --color-base-25:  #DDD8D2;
+  --color-base-30:  #D4CEC7;
+  --color-base-35:  #C4BAB0;
+  --color-base-40:  #A8A29E;
+  --color-base-50:  #78716C;
+  --color-base-60:  #57534E;
+  --color-base-70:  #44403C;
+  --color-base-100: #1A1918;
+
+  /* Layer 2: Accent — darker for legibility on light backgrounds */
+  --accent-h: 31;
+  --accent-s: 24%;
+  --accent-l: 44%;
+
+  /* Layer 3: Extended colors — warmer variants for light mode */
+  --color-red:         #DC2626;
+  --color-red-rgb:     220, 38, 38;
+  --color-orange:      #D97706;
+  --color-orange-rgb:  217, 119, 6;
+  --color-yellow:      #CA8A04;
+  --color-yellow-rgb:  202, 138, 4;
+  --color-green:       #16A34A;
+  --color-green-rgb:   22, 163, 74;
+  --color-cyan:        #0891B2;
+  --color-cyan-rgb:    8, 145, 178;
+  --color-blue:        #2563EB;
+  --color-blue-rgb:    37, 99, 235;
+  --color-purple:      #7C3AED;
+  --color-purple-rgb:  124, 58, 237;
+  --color-pink:        #DB2777;
+  --color-pink-rgb:    219, 39, 119;
+
+  /* Layer 4: Typography */
+  --font-interface-theme: "Segoe UI Variable", "Segoe UI", "Inter", sans-serif;
+  --font-text-theme:      "Segoe UI Variable", "Segoe UI", "Inter", sans-serif;
+  --font-monospace-theme:  "Roboto Mono", "JetBrains Mono", monospace;
+  --paragraph-weight: 350;
+  --code-weight: 300;
+
+  --h1-font:   "Libre Baskerville", "Georgia", serif;
+  --h2-font:   "Libre Baskerville", "Georgia", serif;
+  --h1-weight: 700;
+  --h2-weight: 400;
+  --h3-weight: 600;
+  --h1-size:   2em;
+  --h2-size:   1.6em;
+  --h3-size:   1.3em;
+  --h4-size:   1.05em;
+  --h5-size:   1em;
+  --h6-size:   0.9em;
+  --h1-line-height: 1.2;
+  --h2-line-height: 1.4;
+
+  --inline-title-font:   "Libre Baskerville", "Georgia", serif;
+  --inline-title-weight: 700;
+  --inline-title-size:   2em;
+  --inline-title-line-height: 1.0;
+
+}
+
+/* ── Layer 5h: All popup menus, dropdowns, suggestions ── */
+
+/* Native select options — limited styling (popup is OS-rendered) */
+.theme-dark select option,
+.theme-dark .dropdown option {
+  background-color: #252422;
+  color: #D4C5B5;
+}
+
+/* Context menus / right-click / command palette menus */
+.theme-dark .menu {
+  background-color: #252422;
+  border: 1px solid rgba(68, 64, 60, 0.5);
+  border-radius: 12px;
+  corner-shape: superellipse(2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  padding: 6px;
+}
+
+.theme-dark .menu .menu-scroll {
+  padding: 0;
+}
+
+.theme-dark .menu .menu-item {
+  color: #D4C5B5;
+  border-radius: 8px;
+  corner-shape: superellipse(2);
+  padding: 6px 10px;
+}
+
+.theme-dark .menu .menu-item .menu-item-icon {
+  color: #A8A29E;
+}
+
+.theme-dark .menu .menu-item:not(.is-label):not(.is-disabled).selected,
+.theme-dark .menu .menu-item:not(.is-label):not(.is-disabled):hover {
+  background-color: #2C2B29;
+}
+
+.theme-dark .menu .menu-separator {
+  border-color: #44403C;
+  margin: 4px 6px;
+}
+
+/* Suggestion popups (autocomplete, pickers) */
+.theme-dark .suggestion-container,
+.theme-dark .cm-tooltip.cm-tooltip-autocomplete {
+  background-color: #252422;
+  border: 1px solid rgba(68, 64, 60, 0.5);
+  border-radius: 12px;
+  corner-shape: superellipse(2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.theme-dark .suggestion-item {
+  color: #D4C5B5;
+  border-radius: 8px;
+  corner-shape: superellipse(2);
+}
+
+.theme-dark .suggestion-item.is-selected,
+.theme-dark .suggestion-item:hover {
+  background-color: #2C2B29;
+}
+
+/* ── Layer 5h: Flat toggles ── */
+
+.checkbox-container,
+.checkbox-container:after {
+  box-shadow: none;
+}
+@media (hover: hover) {
+  .checkbox-container:hover {
+    box-shadow: none;
+  }
+}
+.checkbox-container:active:after {
+  width: var(--toggle-s-thumb-width);
+  height: var(--toggle-s-thumb-height);
+  margin-top: var(--toggle-s-border-width);
+}
+.modal .checkbox-container:active:after {
+  width: var(--toggle-thumb-width);
+  height: var(--toggle-thumb-height);
+  margin-top: var(--toggle-border-width);
+}
+
+/* ── Layer 7: Status bar layout ──
+   Restructure app-container as CSS grid so the status bar
+   can occupy the same column as mod-root (between sidebars).
+   display:contents flattens the intermediate containers,
+   making splits + status-bar direct grid participants. */
+
+/* Status bar styling — positioning handled by the optional Gib Tweaks plugin */
+body:not(.is-mobile) .status-bar {
+  border-top: 1px solid var(--divider-color);
+  border-radius: 0;
+  justify-content: flex-start;
+  padding: var(--size-4-3) var(--size-4-2);
+  min-height: 43px;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* ── Layer 6: Minimal raw CSS ── */
+
+/* Scrollbar width — RPVM 6px */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Selection — warm accent tint */
+::selection {
+  background: rgba(212, 197, 181, 0.2);
+}
+
+/* Superellipse corners — activates when Obsidian's Electron catches up */
+@supports (corner-shape: superellipse(2)) {
+  .modal,
+  .prompt,
+  .tag {
+    corner-shape: superellipse(2);
+  }
+}
+
+/* ── Layer 5i: Callout styling ── */
+
+.callout {
+  corner-shape: superellipse(2);
+  border: 1px solid rgba(var(--callout-color), 0.25);
+  background-color: transparent;
+}
+
+/* ── Paragraph text weight ── */
+
+.cm-line:not(.HyperMD-header),
+.markdown-rendered p,
+.markdown-rendered li {
+  font-weight: var(--paragraph-weight, 350);
+}
+
+/* ── Align rendered code blocks with editing view ── */
+
+.markdown-rendered pre {
+  padding: 0 var(--size-4-4);
+  line-height: var(--line-height-normal);
+  border: none;
+}
+
+.markdown-rendered pre code {
+  font-size: var(--code-size);
+  line-height: inherit;
+}
+
+/* Match editing view's codeblock background to extend full width */
+.cm-s-obsidian div.HyperMD-codeblock-bg,
+.cm-s-obsidian div.HyperMD-codeblock-begin-bg,
+.cm-s-obsidian div.HyperMD-codeblock-end-bg {
+  border: none;
+}
+
+/* Remove hover shadow on code blocks in editing view */
+.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget):hover {
+  box-shadow: none;
+}
+
+/* ── Layer 5d: Code block font weight ── */
+
+code,
+.cm-inline-code,
+.markdown-rendered pre code,
+.HyperMD-codeblock {
+  font-weight: var(--code-weight, 300);
+}
+
+/* ── Sidebar inward shadows ── */
+
+.workspace-split.mod-left-split,
+.workspace-split.mod-right-split {
+  position: relative;
+}
+
+.workspace-split.mod-left-split::after,
+.workspace-split.mod-right-split::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.workspace-split.mod-left-split::after {
+  right: 0;
+  box-shadow: inset -30px 0 72px -24px rgba(0, 0, 0, 0.09);
+}
+
+.workspace-split.mod-right-split::after {
+  left: 0;
+  box-shadow: inset 30px 0 72px -24px rgba(0, 0, 0, 0.09);
+}
+
+/* ── Ribbon icon dimming ── */
+
+.side-dock-ribbon-action .svg-icon,
+.workspace-ribbon-collapse-btn .svg-icon {
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}
+
+.side-dock-ribbon-action:hover .svg-icon,
+.workspace-ribbon-collapse-btn:hover .svg-icon {
+  opacity: 1;
+}
+
+/* ── Layer 5c: Link underline styling ── */
+
+.markdown-rendered a.internal-link,
+.markdown-rendered a.external-link,
+.cm-underline {
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(162, 145, 128, 0.5);
+}
