@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.2
+
+- Stops the right-sidebar decorative shadow above the Gib Tweaks status footer.
+- Uses the footer's live height so the theme cannot visually overlay relocated status items.
+
 ## 0.2.1
 
 - Scopes main-workspace status-bar styling away from the Gib Tweaks right-sidebar footer.

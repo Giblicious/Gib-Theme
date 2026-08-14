@@ -38,6 +38,9 @@ if (!css.includes('--accent-h:')) throw new Error('theme.css must define the Gib
 if (!css.includes('.status-bar:not(.gib-tweaks-status-bar-in-sidebar)')) {
   throw new Error('Gib Theme must defer relocated status-bar styling to Gib Tweaks');
 }
+if (!css.includes('.workspace-split.mod-right-split.gib-tweaks-has-status-bar-footer::after')) {
+  throw new Error('Gib Theme must keep its sidebar overlay out of the Gib Tweaks footer');
+}
 if (/url\s*\(\s*["']?https?:/i.test(css) || /@import\s+(?:url\s*\()?\s*["']?https?:/i.test(css)) {
   throw new Error('theme.css must not load remote runtime assets');
 }

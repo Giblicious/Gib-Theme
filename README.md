@@ -10,7 +10,7 @@ Gib Theme is a warm, restrained theme for Obsidian with coordinated dark and lig
 - Refined callouts, menus, suggestions, toggles, code blocks, links, sidebars, and status bar.
 - No remote fonts, images, analytics, or other runtime network dependencies.
 - Optional compatibility with [Gib Tweaks](https://github.com/Giblicious/Gib-Tweaks) for typography overrides and workspace behavior.
-- Status-bar rules are scoped so Gib Tweaks can place the bar in the right sidebar without theme cascade conflicts.
+- Status-bar and sidebar-overlay rules are scoped so Gib Tweaks can place the bar in a full-width right footer without theme cascade conflicts.
 
 ## Install with BRAT
 
