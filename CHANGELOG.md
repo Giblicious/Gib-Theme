@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.10
+
+- Tints each callout title band toward its semantic callout color.
+- Uses restrained, mode-specific blends so the tint stays within Gib Theme's warm stone palette.
+- Carries a softer version of the tint into the title divider while preserving neutral title text.
+
 ## 0.2.9
 
 - Adds a differentiated warm-stone title band to callouts.

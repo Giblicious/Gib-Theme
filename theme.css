@@ -111,6 +111,8 @@
   --callout-quote:             #A8A29E;
   --gib-callout-background:    #222120;
   --gib-callout-title-background: #2C2B29;
+  --gib-callout-title-tint:    12%;
+  --gib-callout-divider-tint:  18%;
   --gib-callout-border:        #3D3B39;
   --gib-callout-title:         #D4C5B5;
   --gib-callout-shadow:        0 1px 0 rgba(0, 0, 0, 0.18);
@@ -291,6 +293,8 @@
   --callout-quote:             #78716C;
   --gib-callout-background:    #F5F2EF;
   --gib-callout-title-background: #EDEAE6;
+  --gib-callout-title-tint:    9%;
+  --gib-callout-divider-tint:  15%;
   --gib-callout-border:        #D4CEC7;
   --gib-callout-title:         #44403C;
   --gib-callout-shadow:        0 1px 0 rgba(68, 64, 60, 0.08);
@@ -426,6 +430,21 @@
 
 .callout-title-inner {
   color: inherit;
+}
+
+@supports (background-color: color-mix(in srgb, black 10%, white)) {
+  .callout-title {
+    background-color: color-mix(
+      in srgb,
+      var(--callout-color) var(--gib-callout-title-tint),
+      var(--gib-callout-title-background)
+    );
+    border-bottom-color: color-mix(
+      in srgb,
+      var(--callout-color) var(--gib-callout-divider-tint),
+      var(--gib-callout-border)
+    );
+  }
 }
 
 .callout-content {

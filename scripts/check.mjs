@@ -64,6 +64,14 @@ if (!css.includes('background-color: var(--gib-callout-title-background)')) {
 if (!css.includes('border-bottom: var(--callout-border-width) solid var(--gib-callout-border)')) {
   throw new Error('Callout title bands must have a quiet structural divider');
 }
+if (!css.includes('var(--callout-color) var(--gib-callout-title-tint)')
+  || !css.includes('var(--callout-color) var(--gib-callout-divider-tint)')) {
+  throw new Error('Callout title bands must carry a restrained semantic tint');
+}
+if (!css.includes('--gib-callout-title-tint:    12%;')
+  || !css.includes('--gib-callout-title-tint:    9%;')) {
+  throw new Error('Callout title tint must remain independently tuned for dark and light modes');
+}
 if (!css.includes('--callout-padding:           0;')
   || !css.includes('--callout-title-padding:     var(--size-4-2) var(--size-4-4);')
   || !css.includes('--callout-content-padding:   var(--size-4-3) var(--size-4-4);')) {
