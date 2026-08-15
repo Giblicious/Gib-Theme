@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.4
+
+- Gives non-stacked workspace tabs a tapered trapezoidal silhouette.
+- Applies the shared superellipse curve to tab bodies, active-tab connectors, inset corners, and outset corners.
+- Unifies every Obsidian corner-shape token across dark and light modes.
+- Adds a release audit that rejects rounded theme rules without explicit corner-shape treatment.
+
 ## 0.2.3
 
 - Removes theme-owned status-bar height, padding, alignment, and overflow layout.
