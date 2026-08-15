@@ -364,23 +364,8 @@
   margin-top: var(--toggle-border-width);
 }
 
-/* ── Layer 7: Status bar layout ──
-   Restructure app-container as CSS grid so the status bar
-   can occupy the same column as mod-root (between sidebars).
-   display:contents flattens the intermediate containers,
-   making splits + status-bar direct grid participants. */
-
-/* Status bar styling — positioning handled by the optional Gib Tweaks plugin */
-body:not(.is-mobile) .status-bar:not(.gib-tweaks-status-bar-in-sidebar) {
-  border-top: 1px solid var(--divider-color);
-  border-radius: 0;
-  justify-content: flex-start;
-  padding: var(--size-4-3) var(--size-4-2);
-  min-height: 43px;
-  align-items: center;
-  overflow: hidden;
-  white-space: nowrap;
-}
+/* Status-bar layout and placement belong to Obsidian or Gib Tweaks.
+   Gib Theme does not impose container height, padding, or alignment. */
 
 /* ── Layer 6: Minimal raw CSS ── */
 

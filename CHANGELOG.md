@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.3
+
+- Removes theme-owned status-bar height, padding, alignment, and overflow layout.
+- Leaves status-bar container layout and placement to Obsidian or the enabled Gib Tweaks plugin.
+- Prevents an inactive Gib Tweaks installation from looking like a floating 43px corner bar.
+
 ## 0.2.2
 
 - Stops the right-sidebar decorative shadow above the Gib Tweaks status footer.

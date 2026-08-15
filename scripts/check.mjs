@@ -35,8 +35,8 @@ postcss.parse(css, { from: path.join(root, 'theme.css') });
 if (!css.includes('.theme-dark')) throw new Error('theme.css must define a dark color scheme');
 if (!css.includes('.theme-light')) throw new Error('theme.css must define a light color scheme');
 if (!css.includes('--accent-h:')) throw new Error('theme.css must define the Gib Theme accent system');
-if (!css.includes('.status-bar:not(.gib-tweaks-status-bar-in-sidebar)')) {
-  throw new Error('Gib Theme must defer relocated status-bar styling to Gib Tweaks');
+if (css.includes('body:not(.is-mobile) .status-bar')) {
+  throw new Error('Gib Theme must not own status-bar layout or placement');
 }
 if (!css.includes('.workspace-split.mod-right-split.gib-tweaks-has-status-bar-footer::after')) {
   throw new Error('Gib Theme must keep its sidebar overlay out of the Gib Tweaks footer');
