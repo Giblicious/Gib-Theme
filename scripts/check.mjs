@@ -46,14 +46,20 @@ cssRoot.walkRules(rule => {
   if (rule.selector.trim() === '.callout') calloutRules.push(rule);
 });
 const calloutDeclarations = calloutRules.flatMap(rule => rule.nodes.filter(node => node.type === 'decl'));
-if (!calloutDeclarations.some(node => node.prop === 'background-color' && node.value === 'var(--background-secondary)')) {
-  throw new Error('Callouts must have a visible fallback background');
+if (!calloutDeclarations.some(node => node.prop === 'background-color' && node.value === 'var(--gib-callout-background)')) {
+  throw new Error('Callouts must use the restrained theme surface');
 }
-if (!calloutDeclarations.some(node => node.prop === 'border-inline-start-color' && node.value === 'var(--callout-color)')) {
-  throw new Error('Callouts must have a visible type-colored edge');
+if (!calloutDeclarations.some(node => node.prop === 'border' && node.value.includes('var(--gib-callout-border)'))) {
+  throw new Error('Callouts must use the restrained theme border');
 }
-if (!css.includes('color-mix(') || !css.includes('--gib-callout-background-mix')) {
-  throw new Error('Callouts must have a type-colored modern background tint');
+if (css.includes('border-inline-start-color: var(--callout-color)')) {
+  throw new Error('Callouts must not use a loud semantic-color edge');
+}
+if (!css.includes('.callout-title') || !css.includes('color: var(--gib-callout-title)')) {
+  throw new Error('Callout titles must use the warm neutral title color');
+}
+if (!css.includes('color-mix(in srgb, var(--callout-color) 45%, var(--gib-callout-title))')) {
+  throw new Error('Semantic callout color must be limited to a muted icon cue');
 }
 if (css.includes('body:not(.is-mobile) .status-bar')) {
   throw new Error('Gib Theme must not own status-bar layout or placement');

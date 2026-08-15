@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.7
+
+- Reworks callouts as quiet warm-stone panels that match the rest of Gib Theme.
+- Removes the saturated background tint and thick semantic-color edge.
+- Keeps callout types recognizable through a restrained icon tint only.
+
 ## 0.2.6
 
 - Restores clearly visible callout surfaces in dark and light modes.

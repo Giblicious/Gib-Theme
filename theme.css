@@ -109,8 +109,10 @@
   --callout-title-padding:     0 0 var(--size-4-2) 0;
   --callout-content-padding:   0;
   --callout-quote:             #A8A29E;
-  --gib-callout-background-mix: 12%;
-  --gib-callout-border-mix:     42%;
+  --gib-callout-background:    #222120;
+  --gib-callout-border:        #3D3B39;
+  --gib-callout-title:         #D4C5B5;
+  --gib-callout-shadow:        0 1px 0 rgba(0, 0, 0, 0.18);
 
   /* Layer 5h: Buttons, toggles, dropdowns */
   --text-on-accent:          #1A1918;
@@ -286,8 +288,10 @@
   --callout-title-padding:     0 0 var(--size-4-2) 0;
   --callout-content-padding:   0;
   --callout-quote:             #78716C;
-  --gib-callout-background-mix: 9%;
-  --gib-callout-border-mix:     38%;
+  --gib-callout-background:    #F5F2EF;
+  --gib-callout-border:        #D4CEC7;
+  --gib-callout-title:         #44403C;
+  --gib-callout-shadow:        0 1px 0 rgba(68, 64, 60, 0.08);
 
 }
 
@@ -407,30 +411,33 @@
 
 .callout {
   corner-shape: superellipse(2);
-  border: var(--callout-border-width) solid var(--background-modifier-border-hover);
-  border-inline-start-width: 3px;
-  border-inline-start-color: var(--callout-color);
-  background-color: var(--background-secondary);
+  border: var(--callout-border-width) solid var(--gib-callout-border);
+  background-color: var(--gib-callout-background);
+  box-shadow: var(--gib-callout-shadow);
 }
 
-@supports (background-color: color-mix(in srgb, black 10%, white)) {
-  .callout {
-    border-color: color-mix(
-      in srgb,
-      var(--callout-color) var(--gib-callout-border-mix),
-      var(--background-modifier-border)
-    );
-    border-inline-start-color: var(--callout-color);
-    background-color: color-mix(
-      in srgb,
-      var(--callout-color) var(--gib-callout-background-mix),
-      var(--background-primary)
-    );
-  }
+.callout-title {
+  color: var(--gib-callout-title);
+}
+
+.callout-title-inner {
+  color: inherit;
 }
 
 .callout-content {
   color: var(--text-normal);
+}
+
+.callout-icon .svg-icon,
+.callout-fold .svg-icon {
+  color: var(--gib-callout-title);
+}
+
+@supports (color: color-mix(in srgb, black 10%, white)) {
+  .callout-icon .svg-icon,
+  .callout-fold .svg-icon {
+    color: color-mix(in srgb, var(--callout-color) 45%, var(--gib-callout-title));
+  }
 }
 
 /* ── Paragraph text weight ── */
