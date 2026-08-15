@@ -7,7 +7,7 @@ Gib Theme is a warm, restrained theme for Obsidian with coordinated dark and lig
 - Coordinated dark and light color systems.
 - Warm neutral interface chrome with a restrained accent palette.
 - Serif document titles and headings paired with clean interface typography.
-- Refined callouts, menus, suggestions, toggles, code blocks, links, sidebars, and status bar.
+- Clearly surfaced, type-colored callouts plus refined menus, suggestions, toggles, code blocks, links, sidebars, and status bar.
 - No remote fonts, images, analytics, or other runtime network dependencies.
 - Optional compatibility with [Gib Tweaks](https://github.com/Giblicious/Gib-Tweaks) for typography overrides and workspace behavior.
 - Status-bar container layout and placement are left to Obsidian or Gib Tweaks, while the sidebar overlay stops above the plugin's full-width right footer.

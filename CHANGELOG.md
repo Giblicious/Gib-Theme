@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.6
+
+- Restores clearly visible callout surfaces in dark and light modes.
+- Replaces obsolete RGB-component callout syntax with current complete CSS colors.
+- Adds a type-colored leading edge, accessible fallback surface, and modern color-mixed tint.
+- Adds release checks that reject transparent or legacy-colored callout styling.
+
 ## 0.2.5
 
 - Reverts the trapezoidal workspace tabs introduced in 0.2.4.

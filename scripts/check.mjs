@@ -31,10 +31,30 @@ if (fs.existsSync(path.join(root, 'theme-beta.css'))) {
 }
 
 const css = read('theme.css');
-postcss.parse(css, { from: path.join(root, 'theme.css') });
+const cssRoot = postcss.parse(css, { from: path.join(root, 'theme.css') });
 if (!css.includes('.theme-dark')) throw new Error('theme.css must define a dark color scheme');
 if (!css.includes('.theme-light')) throw new Error('theme.css must define a light color scheme');
 if (!css.includes('--accent-h:')) throw new Error('theme.css must define the Gib Theme accent system');
+if (css.includes('rgba(var(--callout-color)')) {
+  throw new Error('Callouts must treat --callout-color as a complete modern CSS color');
+}
+if (/--callout-quote:\s*\d+\s*,/.test(css)) {
+  throw new Error('--callout-quote must be a complete CSS color, not a legacy RGB component list');
+}
+const calloutRules = [];
+cssRoot.walkRules(rule => {
+  if (rule.selector.trim() === '.callout') calloutRules.push(rule);
+});
+const calloutDeclarations = calloutRules.flatMap(rule => rule.nodes.filter(node => node.type === 'decl'));
+if (!calloutDeclarations.some(node => node.prop === 'background-color' && node.value === 'var(--background-secondary)')) {
+  throw new Error('Callouts must have a visible fallback background');
+}
+if (!calloutDeclarations.some(node => node.prop === 'border-inline-start-color' && node.value === 'var(--callout-color)')) {
+  throw new Error('Callouts must have a visible type-colored edge');
+}
+if (!css.includes('color-mix(') || !css.includes('--gib-callout-background-mix')) {
+  throw new Error('Callouts must have a type-colored modern background tint');
+}
 if (css.includes('body:not(.is-mobile) .status-bar')) {
   throw new Error('Gib Theme must not own status-bar layout or placement');
 }
