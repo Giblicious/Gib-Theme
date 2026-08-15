@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.8
+
+- Prevents Butter Editor's newly inserted paragraph wrapper from clipping the caret.
+- Preserves Butter's spawn animation with a bounded four-pixel paint allowance.
+- Keeps the caret synchronized with Obsidian's active caret color.
+
 ## 0.2.7
 
 - Reworks callouts as quiet warm-stone panels that match the rest of Gib Theme.

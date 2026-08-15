@@ -440,6 +440,24 @@
   }
 }
 
+/* Butter Editor keeps this class on a newly inserted paragraph while the
+   caret remains inside it. Allow the themed caret to paint past the line box. */
+body.theme-dark .butter-editor-view .ProseMirror > p.butter-spawn-ephemeral,
+body.theme-light .butter-editor-view .ProseMirror > p.butter-spawn-ephemeral {
+  overflow: visible;
+  caret-color: var(--caret-color);
+}
+
+/* Preserve Butter's animation clipping while extending its paint boundary
+   enough for the caret's ascender and descender. */
+@supports (overflow-clip-margin: 4px) {
+  body.theme-dark .butter-editor-view .ProseMirror > p.butter-spawn-ephemeral,
+  body.theme-light .butter-editor-view .ProseMirror > p.butter-spawn-ephemeral {
+    overflow: clip;
+    overflow-clip-margin: 4px;
+  }
+}
+
 /* ── Paragraph text weight ── */
 
 .cm-line:not(.HyperMD-header),

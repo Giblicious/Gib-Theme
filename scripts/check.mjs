@@ -61,6 +61,21 @@ if (!css.includes('.callout-title') || !css.includes('color: var(--gib-callout-t
 if (!css.includes('color-mix(in srgb, var(--callout-color) 45%, var(--gib-callout-title))')) {
   throw new Error('Semantic callout color must be limited to a muted icon cue');
 }
+const butterCaretSelector = '.butter-editor-view .ProseMirror > p.butter-spawn-ephemeral';
+const butterCaretRules = [];
+cssRoot.walkRules(rule => {
+  if (rule.selector.includes(butterCaretSelector)) butterCaretRules.push(rule);
+});
+const butterCaretDeclarations = butterCaretRules.flatMap(rule => rule.nodes.filter(node => node.type === 'decl'));
+if (!butterCaretDeclarations.some(node => node.prop === 'overflow' && node.value === 'visible')) {
+  throw new Error('Butter Editor new-line carets need a non-clipping fallback');
+}
+if (!butterCaretDeclarations.some(node => node.prop === 'overflow-clip-margin' && node.value === '4px')) {
+  throw new Error('Butter Editor new-line carets need a bounded paint allowance');
+}
+if (!butterCaretDeclarations.some(node => node.prop === 'caret-color' && node.value === 'var(--caret-color)')) {
+  throw new Error('Butter Editor new-line carets must retain the Obsidian caret color');
+}
 if (css.includes('body:not(.is-mobile) .status-bar')) {
   throw new Error('Gib Theme must not own status-bar layout or placement');
 }
