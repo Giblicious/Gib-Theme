@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.9
+
+- Adds a differentiated warm-stone title band to callouts.
+- Separates the heading and body with a quiet structural divider.
+- Gives the title and content independent full-width spacing in Obsidian and Butter Editor.
+
 ## 0.2.8
 
 - Prevents Butter Editor's newly inserted paragraph wrapper from clipping the caret.

@@ -58,6 +58,17 @@ if (css.includes('border-inline-start-color: var(--callout-color)')) {
 if (!css.includes('.callout-title') || !css.includes('color: var(--gib-callout-title)')) {
   throw new Error('Callout titles must use the warm neutral title color');
 }
+if (!css.includes('background-color: var(--gib-callout-title-background)')) {
+  throw new Error('Callouts must have a differentiated warm-stone title band');
+}
+if (!css.includes('border-bottom: var(--callout-border-width) solid var(--gib-callout-border)')) {
+  throw new Error('Callout title bands must have a quiet structural divider');
+}
+if (!css.includes('--callout-padding:           0;')
+  || !css.includes('--callout-title-padding:     var(--size-4-2) var(--size-4-4);')
+  || !css.includes('--callout-content-padding:   var(--size-4-3) var(--size-4-4);')) {
+  throw new Error('Callout title and content sections must own their full-width padding');
+}
 if (!css.includes('color-mix(in srgb, var(--callout-color) 45%, var(--gib-callout-title))')) {
   throw new Error('Semantic callout color must be limited to a muted icon cue');
 }
