@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.5
+
+- Reverts the trapezoidal workspace tabs introduced in 0.2.4.
+- Removes the global superellipse override and restores the theme's previous corner geometry.
+
 ## 0.2.4
 
 - Gives non-stacked workspace tabs a tapered trapezoidal silhouette.

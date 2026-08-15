@@ -31,59 +31,10 @@ if (fs.existsSync(path.join(root, 'theme-beta.css'))) {
 }
 
 const css = read('theme.css');
-const cssRoot = postcss.parse(css, { from: path.join(root, 'theme.css') });
+postcss.parse(css, { from: path.join(root, 'theme.css') });
 if (!css.includes('.theme-dark')) throw new Error('theme.css must define a dark color scheme');
 if (!css.includes('.theme-light')) throw new Error('theme.css must define a light color scheme');
 if (!css.includes('--accent-h:')) throw new Error('theme.css must define the Gib Theme accent system');
-if (!css.includes('clip-path: polygon(') || !css.includes('--gib-tab-slope')) {
-  throw new Error('Gib Theme must define the trapezoidal tab silhouette');
-}
-if (!css.includes('body.theme-dark *::before') || !css.includes('body.theme-light *::after')) {
-  throw new Error('Gib Theme must apply superellipse geometry to UI surfaces and pseudo-corners');
-}
-
-const cornerShapeTokens = [
-  '--corner-shape',
-  '--bases-cards-corner-shape',
-  '--button-corner-shape',
-  '--embed-actions-corner-shape',
-  '--input-corner-shape',
-  '--menu-corner-shape',
-  '--metadata-property-corner-shape',
-  '--pill-corner-shape',
-  '--search-input-corner-shape',
-  '--tab-switcher-preview-corner-shape',
-  '--tag-corner-shape',
-];
-const sharedGeometryRule = cssRoot.nodes.find(node =>
-  node.type === 'rule'
-  && node.selector.includes('body.theme-dark')
-  && node.selector.includes('body.theme-light')
-);
-if (!sharedGeometryRule) throw new Error('Dark and light themes must share one corner geometry contract');
-for (const token of cornerShapeTokens) {
-  const declaration = sharedGeometryRule.nodes.find(node => node.type === 'decl' && node.prop === token);
-  if (!declaration || !declaration.value.includes('--gib-corner-shape')) {
-    throw new Error(`Shared superellipse geometry is missing token: ${token}`);
-  }
-}
-
-const unshapedRoundedRules = [];
-cssRoot.walkRules(rule => {
-  const hasRoundedCorner = rule.nodes.some(node =>
-    node.type === 'decl'
-    && /^border(?:-.+)?-radius$/.test(node.prop)
-    && !/^0(?:\s|$)/.test(node.value)
-  );
-  if (!hasRoundedCorner) return;
-  const hasCornerShape = rule.nodes.some(node =>
-    node.type === 'decl' && /^corner(?:-.+)?-shape$/.test(node.prop)
-  );
-  if (!hasCornerShape) unshapedRoundedRules.push(rule.selector);
-});
-if (unshapedRoundedRules.length) {
-  throw new Error(`Rounded rules missing explicit superellipse treatment: ${unshapedRoundedRules.join(', ')}`);
-}
 if (css.includes('body:not(.is-mobile) .status-bar')) {
   throw new Error('Gib Theme must not own status-bar layout or placement');
 }

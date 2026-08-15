@@ -2,26 +2,6 @@
    RPVM warm neutrals mapped to Obsidian's foundation palette.
    This alone shifts the entire UI from cool gray to warm stone. */
 
-body.theme-dark,
-body.theme-light {
-  --gib-corner-shape:              superellipse(2);
-  --corner-shape:                  var(--gib-corner-shape);
-  --bases-cards-corner-shape:      var(--gib-corner-shape);
-  --button-corner-shape:           var(--gib-corner-shape);
-  --embed-actions-corner-shape:    var(--gib-corner-shape);
-  --input-corner-shape:            var(--gib-corner-shape);
-  --menu-corner-shape:             var(--gib-corner-shape);
-  --metadata-property-corner-shape: var(--gib-corner-shape);
-  --pill-corner-shape:             var(--gib-corner-shape);
-  --search-input-corner-shape:     var(--gib-corner-shape);
-  --tab-switcher-preview-corner-shape: var(--gib-corner-shape);
-  --tag-corner-shape:              var(--gib-corner-shape);
-  --gib-tab-slope:                 8px;
-  --tab-curve:                     8px;
-  --tab-radius:                    10px;
-  --tab-radius-active:             10px 10px 0 0;
-}
-
 .theme-dark {
   --color-base-00:  #1A1918;
   --color-base-05:  #1E1D1C;
@@ -137,6 +117,12 @@ body.theme-light {
   --button-radius:           12px;
   --input-radius:            16px;
   --interactive-accent-hover: #C8B9A8;
+
+  /* Superellipse on all interactive elements */
+  --corner-shape:            superellipse(2);
+  --menu-corner-shape:       superellipse(2);
+  --input-corner-shape:      superellipse(2);
+  --button-corner-shape:     superellipse(2);
 
   /* Flat input shadows — replace heavy 3D defaults */
   --input-shadow:            inset 0 0 0 1px rgba(68, 64, 60, 0.5);
@@ -383,41 +369,6 @@ body.theme-light {
 
 /* ── Layer 6: Minimal raw CSS ── */
 
-/* Trapezoidal tabs with superellipse convex and concave corner geometry. */
-.workspace-tabs:not(.mod-stacked) .workspace-tab-header-container .workspace-tab-header {
-  border-radius: var(--tab-radius-active);
-  corner-shape: var(--gib-corner-shape);
-}
-
-.workspace-tabs:not(.mod-stacked) .workspace-tab-header-container .workspace-tab-header-inner {
-  clip-path: polygon(
-    var(--gib-tab-slope) 0,
-    calc(100% - var(--gib-tab-slope)) 0,
-    100% 100%,
-    0 100%
-  );
-  border-radius: var(--tab-radius);
-  corner-shape: var(--gib-corner-shape);
-  padding-inline: calc(var(--size-4-2) + 4px);
-}
-
-.workspace-tabs:not(.mod-stacked) .workspace-tab-header-container .workspace-tab-header.is-active {
-  background-color: transparent;
-  box-shadow: none;
-}
-
-.workspace-tabs:not(.mod-stacked) .workspace-tab-header-container .workspace-tab-header.is-active .workspace-tab-header-inner {
-  background-color: var(--tab-background-active);
-  border-radius: var(--tab-radius-active);
-  corner-shape: var(--gib-corner-shape);
-  box-shadow: inset 0 0 0 var(--tab-outline-width) var(--tab-outline-color);
-}
-
-.workspace-tab-header-container .workspace-tab-header::before,
-.workspace-tab-header-container .workspace-tab-header::after {
-  corner-shape: var(--gib-corner-shape);
-}
-
 /* Scrollbar width — RPVM 6px */
 ::-webkit-scrollbar {
   width: 6px;
@@ -429,15 +380,12 @@ body.theme-light {
   background: rgba(212, 197, 181, 0.2);
 }
 
-/* Apply the shared superellipse curve to every rounded UI surface and pseudo-corner. */
+/* Superellipse corners — activates when Obsidian's Electron catches up */
 @supports (corner-shape: superellipse(2)) {
-  body.theme-dark *,
-  body.theme-dark *::before,
-  body.theme-dark *::after,
-  body.theme-light *,
-  body.theme-light *::before,
-  body.theme-light *::after {
-    corner-shape: var(--gib-corner-shape);
+  .modal,
+  .prompt,
+  .tag {
+    corner-shape: superellipse(2);
   }
 }
 
