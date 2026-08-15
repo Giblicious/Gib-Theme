@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.11
+
+- Reduces callout title tint to a barely perceptible semantic wash.
+- Uses five percent in dark mode and three percent in light mode.
+- Softens the matching divider tint while retaining the differentiated title section.
+
 ## 0.2.10
 
 - Tints each callout title band toward its semantic callout color.

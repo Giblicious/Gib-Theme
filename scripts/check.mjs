@@ -68,8 +68,8 @@ if (!css.includes('var(--callout-color) var(--gib-callout-title-tint)')
   || !css.includes('var(--callout-color) var(--gib-callout-divider-tint)')) {
   throw new Error('Callout title bands must carry a restrained semantic tint');
 }
-if (!css.includes('--gib-callout-title-tint:    12%;')
-  || !css.includes('--gib-callout-title-tint:    9%;')) {
+if (!css.includes('--gib-callout-title-tint:    5%;')
+  || !css.includes('--gib-callout-title-tint:    3%;')) {
   throw new Error('Callout title tint must remain independently tuned for dark and light modes');
 }
 if (!css.includes('--callout-padding:           0;')
