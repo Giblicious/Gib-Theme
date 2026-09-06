@@ -471,6 +471,48 @@
   }
 }
 
+/* Butter Editor uses the callout radius for document blocks, but its
+   transient drag-and-drop chrome is mounted outside the editor and has
+   separate defaults. Keep those surfaces on the same radius and squircle
+   system as callouts without changing Butter's layout or interactions. */
+.butter-editor-view {
+  --butter-block-radius: var(--callout-radius);
+}
+
+.butter-editor-view .ProseMirror > :is(p, h1, h2, h3, h4, h5, h6, blockquote, hr),
+.butter-editor-view .ProseMirror > .butter-list-item,
+.butter-drag-handle,
+.butter-drag-ghost-inner,
+.butter-drag-ghost-clamped,
+.butter-drop-filler,
+.butter-layout-row-placeholder,
+.butter-layout-row-ghost,
+.butter-layout-drop-indicator,
+.butter-layout-row.is-drop-into,
+.butter-table-drop-indicator,
+.butter-table-row-ghost > table,
+.butter-table-col-ghost > table,
+.butter-cell-selection-frame,
+.butter-cell-selection-frame--dragging::before,
+.butter-cell-dest-outline,
+.butter-editor-view .ProseMirror-dropcursor {
+  corner-shape: superellipse(2);
+}
+
+.butter-drag-ghost-inner,
+.butter-drag-ghost-clamped {
+  border-radius: var(--butter-ghost-radius, var(--callout-radius));
+}
+
+.butter-drop-filler,
+.butter-layout-row-placeholder,
+.butter-layout-row-ghost,
+.butter-layout-row.is-drop-into,
+.butter-table-row-ghost > table,
+.butter-table-col-ghost > table {
+  border-radius: var(--callout-radius);
+}
+
 /* Butter Editor keeps this class on a newly inserted paragraph while the
    caret remains inside it. Allow the themed caret to paint past the line box. */
 body.theme-dark .butter-editor-view .ProseMirror > p.butter-spawn-ephemeral,

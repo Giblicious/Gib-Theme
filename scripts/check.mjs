@@ -95,6 +95,44 @@ if (!butterCaretDeclarations.some(node => node.prop === 'overflow-clip-margin' &
 if (!butterCaretDeclarations.some(node => node.prop === 'caret-color' && node.value === 'var(--caret-color)')) {
   throw new Error('Butter Editor new-line carets must retain the Obsidian caret color');
 }
+for (const selector of [
+  '.butter-drag-ghost-inner',
+  '.butter-drop-filler',
+  '.butter-layout-row-ghost',
+  '.butter-table-drop-indicator',
+  '.butter-table-row-ghost > table',
+  '.butter-cell-selection-frame',
+  '.butter-editor-view .ProseMirror-dropcursor',
+]) {
+  const matchingRules = [];
+  cssRoot.walkRules(rule => {
+    if (rule.selector.includes(selector)) matchingRules.push(rule);
+  });
+  const declarations = matchingRules.flatMap(rule => rule.nodes.filter(node => node.type === 'decl'));
+  if (!declarations.some(node => node.prop === 'corner-shape' && node.value === 'superellipse(2)')) {
+    throw new Error(`Butter Editor surface ${selector} must use the callout superellipse shape`);
+  }
+}
+for (const selector of [
+  '.butter-drop-filler',
+  '.butter-layout-row-ghost',
+  '.butter-table-row-ghost > table',
+]) {
+  const matchingRules = [];
+  cssRoot.walkRules(rule => {
+    if (rule.selector.includes(selector)) matchingRules.push(rule);
+  });
+  const declarations = matchingRules.flatMap(rule => rule.nodes.filter(node => node.type === 'decl'));
+  if (!declarations.some(node => node.prop === 'border-radius' && node.value === 'var(--callout-radius)')) {
+    throw new Error(`Butter Editor surface ${selector} must inherit the callout radius`);
+  }
+}
+if (!css.includes('border-radius: var(--butter-ghost-radius, var(--callout-radius));')) {
+  throw new Error('Butter Editor block ghosts must preserve the source radius with a callout fallback');
+}
+if (!css.includes('--butter-block-radius: var(--callout-radius);')) {
+  throw new Error('Butter Editor document blocks must inherit the callout radius');
+}
 if (css.includes('body:not(.is-mobile) .status-bar')) {
   throw new Error('Gib Theme must not own status-bar layout or placement');
 }

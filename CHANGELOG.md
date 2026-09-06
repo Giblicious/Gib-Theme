@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.12
+
+- Extends the callout superellipse treatment to Butter Editor's rounded blocks and drag/drop chrome.
+- Matches block ghosts, drop fillers, layout placeholders, and table ghosts to the callout radius.
+- Covers Butter's drop indicators and table selection outlines without changing their geometry.
+
 ## 0.2.11
 
 - Reduces callout title tint to a barely perceptible semantic wash.
